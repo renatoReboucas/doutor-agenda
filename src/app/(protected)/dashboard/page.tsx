@@ -9,10 +9,8 @@ const DashboardPage = async () => {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
-  if (!session?.user) {
-    redirect("/authentication");
-  }
-
+  if (!session?.user) redirect("/authentication");
+  if (!session?.user?.clinic) redirect("/clinic-form");
   return (
     <div>
       <h1>Dashboard</h1>
