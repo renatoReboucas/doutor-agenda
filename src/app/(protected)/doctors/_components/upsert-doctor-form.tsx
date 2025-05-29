@@ -76,7 +76,6 @@ const UpsertDoctorForm = ({ onSuccess }: UpsertDoctorFormProps) => {
     defaultValues: {
       name: "",
       specialty: "",
-      appointmentPrice: 0,
       availableFromWeekDay: "",
       availableFromTime: "",
       availableToTime: "",
@@ -171,6 +170,7 @@ const UpsertDoctorForm = ({ onSuccess }: UpsertDoctorFormProps) => {
                     }}
                     decimalScale={2}
                     fixedDecimalScale
+                    defaultValue=""
                     decimalSeparator=","
                     allowNegative={false}
                     allowLeadingZeros={false}
