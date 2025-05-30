@@ -32,3 +32,23 @@ The easiest way to deploy your Next.js app is to use the Vercel Platform from th
 Check out our Next.js deployment documentation for more details.
 
 [Modelagem](https://app.eraser.io/workspace/gnsaWrNxRRmFcsNIGxe0?origin=share)
+
+pront Ia ex:
+
+```text
+Crie uma pagina de pacientes. Essa pagina deve ter o botão de "Adicionar paciente", esse botão abrira um Dialog com um formulário de upsert.
+
+Esse formulario tera os seguintes campos:
+- Nome do paciente
+- Email
+- Número de telefone( com  máscara)
+-Sexo: select com duas opções, "Masculino" e "Feminino"
+
+Crie um componete "AddPatientButton" que renderizará o componente "UpsertPatientForm".
+
+Ao enviar o formulário chame uma nova server actition que vai fazer  upsert do paciente no banco de dados.
+
+respeite os campos ja existente do @schema.ts  patientsTable
+
+@general.mdc  use as regras
+```
