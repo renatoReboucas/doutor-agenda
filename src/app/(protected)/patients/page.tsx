@@ -2,6 +2,7 @@ import { eq } from "drizzle-orm";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
+import { DataTable } from "@/components/ui/data-table";
 import {
   PageActions,
   PageContainer,
@@ -43,7 +44,7 @@ export default async function PatientsPage() {
       <PageContent>
         <div className="grid grid-cols-1 gap-1 sm:grid-cols-3 sm:gap-6">
           {patients.map((patient) => (
-            <PatientCard key={patient.id} patient={patient} />
+            <DataTable />
           ))}
         </div>
       </PageContent>
