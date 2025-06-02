@@ -1,7 +1,9 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
+import { EditIcon, MoreVerticalIcon, TrashIcon } from "lucide-react";
 
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -27,26 +29,44 @@ export const columns: ColumnDef<typeof patientsTable.$inferSelect>[] = [
     id: "phoneNumber",
     accessorKey: "phoneNumber",
     header: "Telefone",
+    cell: (params) => {
+      const phone = params.row.original.phoneNumber;
+      if (!phone) return "-";
+      return `(${phone.slice(0, 2)}) ${phone.slice(2, 7)}-${phone.slice(7)}`;
+    },
   },
   {
     id: "sex",
     accessorKey: "sex",
     header: "Sexo",
+    cell: (params) => {
+      const patient = params.row.original;
+      return patient.sex === "male" ? "Masculino" : "Feminino";
+    },
   },
   {
     id: "actions",
-    cell: () => {
-      <DropdownMenu>
-        <DropdownMenuTrigger>Open</DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Team</DropdownMenuItem>
-          <DropdownMenuItem>Subscription</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>;
+    cell: (params) => {
+      const patient = params.row.original;
+      return (
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" size="icon">
+              <MoreVerticalIcon className="h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent>
+            <DropdownMenuLabel>{patient.name}</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>
+              <EditIcon /> Editar
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <TrashIcon /> Excluir
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      );
     },
   },
 ];
