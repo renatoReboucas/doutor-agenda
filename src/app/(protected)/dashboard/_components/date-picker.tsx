@@ -29,8 +29,8 @@ export function DatePicker({
   const date = { from, to };
 
   const handleDateSelect = (dateRange: DateRange | undefined) => {
-    if (dateRange?.from) setFrom(dateRange?.from);
-    if (dateRange?.to) setTo(dateRange?.to);
+    if (dateRange?.from) setFrom(dateRange?.from, { shallow: false });
+    if (dateRange?.to) setTo(dateRange?.to, { shallow: false });
   };
 
   return (
