@@ -1,4 +1,4 @@
-import { Calendar, DollarSign, Users } from "lucide-react";
+import { Calendar, DollarSign, Stethoscope, Users } from "lucide-react";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -69,7 +69,7 @@ const StatsCards = ({
       <Card>
         <CardHeader className="flex flex-row items-center gap-2 space-y-0 pb-2">
           <div className="bg-primary/10 flex size-8 items-center justify-center rounded-full">
-            <Users className="text-primary size-4" />
+            <Stethoscope className="text-primary size-4" />
           </div>
           <CardTitle className="text-muted-foreground text-sm font-medium">
             Médicos
