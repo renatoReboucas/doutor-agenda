@@ -1,5 +1,4 @@
 import dayjs from "dayjs";
-import { and, count, desc, eq, gte, lte, sql, sum } from "drizzle-orm";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -13,7 +12,6 @@ import {
   PageTitle,
 } from "@/components/ui/page-container";
 import { getDashboard } from "@/data/get-dashboard";
-import { db } from "@/db";
 import { auth } from "@/lib/auth";
 
 import AppointmentsChart from "./_components/appointments-chart";
@@ -49,7 +47,6 @@ const DashboardPage = async ({ searchParams }: DashboardPageProps) => {
     totalDoctors,
     topDoctors,
     topSpecialties,
-    todayAppointments,
     dailyAppointmentsData,
   } = await getDashboard({
     from,
