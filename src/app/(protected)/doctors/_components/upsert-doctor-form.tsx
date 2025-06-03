@@ -69,7 +69,7 @@ const formSchema = z
   );
 
 interface UpsertDoctorFormProps {
-  isOpen: boolean;
+  isOpen?: boolean;
   doctor?: typeof doctorsTable.$inferSelect;
   onSuccess?: () => void;
 }
